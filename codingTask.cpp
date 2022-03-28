@@ -15,7 +15,7 @@ int main()
     int integerValue = convertStrToInt(asciiValue);
 
 
-    cout << "The integer value of \"" << asciiValue << "\" is: " << integerValue <<  endl;
+    cout << "The integer value of octal representation \"" << asciiValue << "\" is: " << integerValue <<  endl;
     return 0;
 }
 
