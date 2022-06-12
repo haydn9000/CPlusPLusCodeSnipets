@@ -12,39 +12,46 @@ public:
         string longest;
         string tempSubstring = s;
 
-        for (int i = 0; i < s.length(); i++)
+        if (s.size() == 1)
         {
-            for (int ii = 0; ii < tempSubstring.length(); ii++)
+            return 1;
+        }
+        else
+        {
+            for (int i = 0; i < s.length(); i++)
             {
-                if (tempSubstring.at(ii) == s.at(i) and ii != 0)
-                {                  
-                    break;                    
+                for (int ii = 0; ii < tempSubstring.length(); ii++)
+                {
+                    if (tempSubstring.at(ii) == s.at(i) and ii != 0)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        longest.append(1, tempSubstring.at(ii));
+                    }
+                }
+
+                tempSubstring = tempSubstring.substr(longest.size());
+
+                if (longest != s)
+                {
+                    substrings.push_back(longest);
                 }
                 else
                 {
-                    longest.append(1, tempSubstring.at(ii));
+                    tempSubstring = s;
+                }
+                longest = "";
+                i = 0;
+
+                if (tempSubstring.size() < 2)
+                {
+                    break;
                 }
             }
-
-            tempSubstring = tempSubstring.substr(longest.size());
-
-            if (longest != s)
-            {
-                substrings.push_back(longest);
-            }
-            else
-            {
-                tempSubstring = s;
-            }
-            longest = "";
-            i = 0;
-
-            if (tempSubstring.size() < 2)
-            {
-                break;
-            }
+            return lengthOfLongestStringInVector(substrings);
         }
-        return lengthOfLongestStringInVector(substrings);
     }
 
     int lengthOfLongestStringInVector(vector<string> &vec)
@@ -88,6 +95,22 @@ int main()
     length = longestSubstring.lengthOfLongestSubstring(str);
 
     expected = 3;
+    pass = (length == expected) ? "true" : "false";
+    cout << pass << endl;
+
+    // Test 4
+    str = " ";
+    length = longestSubstring.lengthOfLongestSubstring(str);
+
+    expected = 1;
+    pass = (length == expected) ? "true" : "false";
+    cout << pass << endl;
+
+    // Test 5
+    str = "au";
+    length = longestSubstring.lengthOfLongestSubstring(str);
+
+    expected = 2;
     pass = (length == expected) ? "true" : "false";
     cout << pass << endl;
 
