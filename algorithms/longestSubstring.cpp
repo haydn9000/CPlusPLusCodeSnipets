@@ -16,6 +16,17 @@ public:
         {
             return 1;
         }
+        else if (s.size() == 2)
+        {
+            if (s.at(0) != s.at(1))
+            {
+                return 2;
+            }
+            else
+            {
+                return 1;
+            }
+        }
         else
         {
             for (int i = 0; i < s.length(); i++)
@@ -27,7 +38,7 @@ public:
                         break;
                     }
                     else
-                    {
+                    {   
                         longest.append(1, tempSubstring.at(ii));
                     }
                 }
@@ -63,6 +74,7 @@ public:
             if (longestStringLength < vec.at(i).size())
             {
                 longestStringLength = vec.at(i).size();
+                cout << vec.at(i) << endl;
             }
         }
         // cout << longestStringLength << endl;
@@ -108,6 +120,14 @@ int main()
 
     // Test 5
     str = "au";
+    length = longestSubstring.lengthOfLongestSubstring(str);
+
+    expected = 2;
+    pass = (length == expected) ? "true" : "false";
+    cout << pass << endl;
+
+    // Test 6
+    str = "cdd";
     length = longestSubstring.lengthOfLongestSubstring(str);
 
     expected = 2;
