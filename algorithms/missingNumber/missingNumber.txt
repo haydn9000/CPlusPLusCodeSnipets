@@ -1,0 +1,2 @@
+You have an unsorted array containing all the integers from 0-100 inclusively. 
+However, one number is missing. Write a function to find and return the missing number.
